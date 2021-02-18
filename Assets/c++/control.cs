@@ -79,6 +79,9 @@ public class control: MonoBehaviour
         TurnCamera();
         Jump();
         PSSystem();
+
+        //測試扣血
+        if (Input.GetKeyDown(KeyCode.Alpha1)) Cure(-10);
     }
     private void FixedUpdate() //50fps
     {
@@ -162,5 +165,12 @@ public class control: MonoBehaviour
             barPs.fillAmount = ps / psMax;
         }
         ps = Mathf.Clamp(ps, 0, psMax);
+    }
+    //治癒
+    public void Cure(float cureValue)
+    {
+        hp += cureValue;                          //補血
+        hp = Mathf.Clamp(hp, 0, hpMax);           //把hp鎖在0~最大值
+        barHp.fillAmount = hp / hpMax;            //更新血條
     }
 }

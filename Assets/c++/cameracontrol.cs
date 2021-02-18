@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class cameracontrol : MonoBehaviour
 {
+  
     [Header("追蹤速度"), Range(0, 300)]
     public float speed = 10;
 
